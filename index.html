@@ -12,298 +12,298 @@
   padding:0;
 }
 
-html,body{
-  width:100%;
-  height:100%;
-}
-
 body{
-  overflow:hidden;
+  font-family:Georgia, "Times New Roman", serif;
   background:#170910;
   color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
+  overflow:hidden;
 }
 
 .screen{
-  display:none;
-  width:100%;
+  position:absolute;
+  inset:0;
   min-height:100vh;
-  padding:25px;
+  display:none;
   align-items:center;
   justify-content:center;
+  padding:25px;
   text-align:center;
-  position:relative;
+  animation:fade .7s ease;
 }
 
 .screen.active{
   display:flex;
-  animation:fadeIn .7s ease;
 }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:scale(.96);
-  }
-  to{
-    opacity:1;
-    transform:scale(1);
-  }
+@keyframes fade{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 .container{
-  width:min(430px,100%);
+  width:100%;
+  max-width:430px;
 }
 
 h1{
   font-size:42px;
-  line-height:1.15;
   margin-bottom:15px;
 }
 
 h2{
   font-size:30px;
-  line-height:1.2;
   margin-bottom:15px;
 }
 
 p{
-  color:#f5dce5;
   line-height:1.7;
-}
-
-.small{
-  font-size:13px;
-  opacity:.7;
-  margin-top:12px;
 }
 
 button{
   border:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.main-btn{
+  margin-top:25px;
+  padding:14px 27px;
   border-radius:30px;
-  padding:14px 25px;
-  margin-top:20px;
-  background:#ff6f9d;
-  color:#fff;
-  font-size:15px;
-  cursor:pointer;
-  box-shadow:0 8px 25px #ff6f9d55;
-  transition:.2s;
+  background:#fff;
+  color:#32111d;
+  font-size:16px;
+  transition:.25s;
 }
 
-button:hover{
-  transform:translateY(-2px);
+.main-btn:hover{
+  transform:scale(1.05);
 }
 
-button:active{
-  transform:scale(.94);
+.small-text{
+  font-size:14px;
+  opacity:.75;
+  margin-top:12px;
 }
 
+/* INTRO */
 
-/* HEART */
-
-.heart{
-  font-size:105px;
-  cursor:pointer;
-  display:inline-block;
-  animation:heartbeat 1.2s infinite;
+.big-heart{
+  font-size:110px;
+  animation:heartbeat 1.4s infinite;
+  margin-bottom:20px;
 }
 
 @keyframes heartbeat{
-  0%,100%{
-    transform:scale(1);
-  }
-  50%{
-    transform:scale(1.15);
-  }
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.12)}
 }
 
+.intro-sub{
+  opacity:.8;
+}
 
 /* PASSWORD */
 
-.code{
-  height:45px;
-  margin-top:20px;
-  font-size:30px;
-  letter-spacing:9px;
-  color:#ff9fbc;
+.password-box{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:25px;
+  padding:25px 20px;
+  backdrop-filter:blur(10px);
+}
+
+.password-display{
+  height:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  font-size:25px;
+  letter-spacing:8px;
+  margin-bottom:20px;
+}
+
+.dot{
+  width:13px;
+  height:13px;
+  border:1px solid #fff;
+  border-radius:50%;
+}
+
+.dot.filled{
+  background:#fff;
 }
 
 .keypad{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-top:20px;
+  max-width:280px;
+  margin:auto;
 }
 
 .key{
-  padding:18px;
-  border-radius:16px;
-  background:#32131f;
-  border:1px solid #71344d;
-  font-size:20px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.key:hover{
-  background:#4a1a2c;
+  width:100%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  color:white;
+  font-size:21px;
+  border:1px solid rgba(255,255,255,.15);
 }
 
 .key:active{
-  transform:scale(.92);
-  background:#ff6f9d;
+  transform:scale(.9);
 }
 
+.password-error{
+  color:#ff9eaf;
+  min-height:25px;
+  margin-top:15px;
+}
 
 /* GIFT */
 
 .gift{
-  font-size:115px;
-  cursor:pointer;
-  display:inline-block;
+  font-size:120px;
   animation:bounce 1.5s infinite;
 }
 
 @keyframes bounce{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-12px);
-  }
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
 }
-
 
 /* CAKE */
 
 .cake{
-  font-size:115px;
-  cursor:pointer;
-  display:inline-block;
-  animation:floatCake 2s infinite;
+  font-size:120px;
+  animation:float 2s ease-in-out infinite;
 }
 
-@keyframes floatCake{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-10px);
-  }
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
-
 
 /* LETTER */
 
 .letter{
-  background:#fff4f7;
-  color:#34121e;
-  padding:30px;
-  border-radius:12px;
+  background:#fff8ed;
+  color:#39151f;
+  padding:28px 24px;
+  border-radius:8px;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
   text-align:left;
-  box-shadow:0 20px 60px #0008;
   position:relative;
 }
 
 .letter:before{
-  content:"♡";
+  content:"";
   position:absolute;
-  right:18px;
-  top:10px;
-  font-size:30px;
-  color:#ff6f9d;
+  inset:8px;
+  border:1px solid rgba(80,30,40,.18);
+  pointer-events:none;
 }
 
 .letter h2{
-  color:#34121e;
+  text-align:center;
+  font-size:27px;
+  margin-bottom:22px;
 }
 
 .letter p{
-  color:#34121e;
-  line-height:1.8;
   font-size:15px;
+  line-height:1.9;
+  position:relative;
+  z-index:1;
 }
 
-
-/* FLOWERS */
+/* BOUQUET */
 
 .flowers{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:14px;
+  gap:15px;
   margin-top:25px;
 }
 
 .flower{
-  padding:22px 8px;
-  background:#32131f;
-  border-radius:18px;
-  font-size:45px;
-  cursor:pointer;
-  transition:.3s;
-  border:1px solid #542235;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:20px;
+  padding:18px 8px;
+  transition:.25s;
 }
 
 .flower:hover{
-  transform:translateY(-6px) rotate(3deg);
-  background:#421827;
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.14);
 }
 
+.flower-icon{
+  font-size:45px;
+  margin-bottom:8px;
+}
+
+.flower span{
+  font-size:12px;
+  opacity:.8;
+}
 
 /* STORY */
 
 .timeline{
-  text-align:left;
   margin-top:25px;
+  text-align:left;
 }
 
-.event{
-  border-left:2px solid #ff6f9d;
-  padding:5px 0 22px 20px;
-  margin-left:8px;
-  position:relative;
+.story-item{
+  display:flex;
+  gap:15px;
+  margin-bottom:22px;
 }
 
-.event:before{
-  content:"";
-  width:9px;
-  height:9px;
+.story-dot{
+  min-width:13px;
+  height:13px;
+  background:#fff;
   border-radius:50%;
-  background:#ff6f9d;
-  position:absolute;
-  left:-5px;
-  top:8px;
+  margin-top:7px;
+  box-shadow:0 0 15px rgba(255,255,255,.6);
 }
 
-.event b{
-  color:#ff9fbc;
-  font-size:16px;
+.story-item h3{
+  margin-bottom:5px;
 }
 
-.event p{
-  margin-top:5px;
+.story-item p{
   font-size:14px;
+  opacity:.78;
 }
-
 
 /* PLAYLIST */
+
+.playlist{
+  margin-top:25px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
 
 .song{
   display:flex;
   align-items:center;
-  gap:12px;
-  text-align:left;
-  padding:16px;
-  margin:12px 0;
-  background:#32131f;
+  gap:13px;
+  padding:15px;
   border-radius:18px;
-  border:1px solid #542235;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  text-align:left;
 }
 
 .song-icon{
   font-size:30px;
-  width:40px;
 }
 
 .song-info{
@@ -311,959 +311,660 @@ button:active{
 }
 
 .song-info b{
-  font-size:15px;
+  display:block;
+  margin-bottom:4px;
 }
 
 .song-info p{
-  font-size:12px;
-  margin-top:2px;
-  opacity:.75;
+  font-size:13px;
+  opacity:.65;
 }
 
 .song button{
-  margin:0;
-  padding:9px 14px;
-  font-size:13px;
+  padding:9px 13px;
+  border-radius:20px;
+  background:#fff;
+  color:#32111d;
+  font-size:12px;
 }
 
 .music-status{
-  margin-top:15px;
-  padding:12px;
-  border-radius:15px;
-  background:#32131f;
-  color:#f5dce5;
-  font-size:13px;
   display:none;
+  margin-top:18px;
+  font-size:13px;
+  opacity:.75;
 }
 
-
-/* JAR */
+/* GRATITUDE */
 
 .jar{
-  font-size:125px;
-  cursor:pointer;
-  display:inline-block;
-  animation:jarShake 2s infinite;
-  margin:20px 0;
+  font-size:100px;
+  margin-bottom:15px;
 }
 
-@keyframes jarShake{
-  0%,85%,100%{
-    transform:rotate(0);
-  }
-  90%{
-    transform:rotate(-6deg);
-  }
-  95%{
-    transform:rotate(6deg);
-  }
+.note{
+  background:#fff8ed;
+  color:#39151f;
+  padding:20px;
+  border-radius:15px;
+  margin:20px auto;
+  max-width:330px;
+  min-height:100px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-style:italic;
+  line-height:1.6;
 }
-
 
 /* FINAL */
 
 .final-heart{
-  font-size:105px;
-  display:inline-block;
-  animation:heartbeat 1.2s infinite;
+  font-size:100px;
+  animation:heartbeat 1.4s infinite;
 }
-
-
-/* CONFETTI */
 
 .confetti{
   position:fixed;
-  width:8px;
-  height:8px;
-  top:-10px;
-  border-radius:2px;
-  animation:fall 3s linear forwards;
-  z-index:100;
+  top:-20px;
+  font-size:20px;
+  animation:fall 4s linear forwards;
+  pointer-events:none;
 }
 
 @keyframes fall{
   to{
     transform:translateY(110vh) rotate(720deg);
+    opacity:0;
   }
 }
 
-
-/* TOAST */
-
-.toast{
+.message{
   position:fixed;
   left:50%;
-  bottom:25px;
-  transform:translateX(-50%);
-  background:#fff;
-  color:#32131f;
-  padding:15px 20px;
-  border-radius:15px;
-  width:min(330px,90%);
-  z-index:200;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:#fff8ed;
+  color:#35131e;
+  padding:25px;
+  width:80%;
+  max-width:330px;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  z-index:100;
   display:none;
-  box-shadow:0 10px 30px #0005;
-  font-size:14px;
-  line-height:1.5;
 }
 
+.message button{
+  margin-top:15px;
+  padding:10px 20px;
+  border-radius:20px;
+  background:#35131e;
+  color:white;
+}
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:380px){
-
-  h1{
-    font-size:35px;
-  }
-
-  h2{
-    font-size:27px;
-  }
-
-  .flower{
-    font-size:38px;
-    padding:18px 5px;
-  }
-
-  .letter{
-    padding:23px;
-  }
-
+@media(max-width:360px){
+  h1{font-size:34px}
+  h2{font-size:26px}
+  .big-heart,.final-heart{font-size:85px}
+  .gift,.cake{font-size:95px}
 }
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     1. INTRO
-===================================================== -->
-
-<section class="screen active" id="s1">
-
+<!-- 1 INTRO -->
+<section class="screen active" id="screen1">
   <div class="container">
-
-    <div class="heart" onclick="go('s2')">
-      ♡
-    </div>
-
-    <h1>
-      For Danish ♡
-    </h1>
-
-    <p>
+    <div class="big-heart">♡</div>
+    <h1>For Danish ♡</h1>
+    <p class="intro-sub">
       There’s something I made just for your birthday, for you.
     </p>
-
-    <p class="small">
+    <button class="main-btn" onclick="nextScreen(2)">
       Tap the heart to start
-    </p>
-
+    </button>
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     2. SECRET CODE
-===================================================== -->
-
-<section class="screen" id="s2">
-
+<!-- 2 PASSWORD -->
+<section class="screen" id="screen2">
   <div class="container">
+    <h2>A little secret first ♡</h2>
+    <p class="small-text">Enter the secret code</p>
 
-    <h2>
-      One little secret 🔐
-    </h2>
-
-    <p>
-      Enter the secret code I made for you.
-    </p>
-
-    <p class="small">
-      Hint: it’s a special number 👀
-    </p>
-
-    <div class="code" id="code"></div>
-
-    <div class="keypad">
-
-      <div class="key" onclick="press('1')">1</div>
-      <div class="key" onclick="press('2')">2</div>
-      <div class="key" onclick="press('3')">3</div>
-
-      <div class="key" onclick="press('4')">4</div>
-      <div class="key" onclick="press('5')">5</div>
-      <div class="key" onclick="press('6')">6</div>
-
-      <div class="key" onclick="press('7')">7</div>
-      <div class="key" onclick="press('8')">8</div>
-      <div class="key" onclick="press('9')">9</div>
-
-      <div></div>
-
-      <div class="key" onclick="press('0')">0</div>
-
-      <div class="key" onclick="erase()">
-        ⌫
+    <div class="password-box">
+      <div class="password-display" id="passwordDisplay">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
       </div>
 
-    </div>
+      <div class="keypad">
+        <button class="key" onclick="pressKey('1')">1</button>
+        <button class="key" onclick="pressKey('2')">2</button>
+        <button class="key" onclick="pressKey('3')">3</button>
 
-    <button onclick="checkPassword()">
-      Enter ♡
+        <button class="key" onclick="pressKey('4')">4</button>
+        <button class="key" onclick="pressKey('5')">5</button>
+        <button class="key" onclick="pressKey('6')">6</button>
+
+        <button class="key" onclick="pressKey('7')">7</button>
+        <button class="key" onclick="pressKey('8')">8</button>
+        <button class="key" onclick="pressKey('9')">9</button>
+
+        <button class="key" onclick="clearPassword()">⌫</button>
+        <button class="key" onclick="pressKey('0')">0</button>
+        <button class="key" onclick="checkPassword()">✓</button>
+      </div>
+
+      <div class="password-error" id="passwordError"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- 3 GIFT -->
+<section class="screen" id="screen3">
+  <div class="container">
+    <div class="gift">🎁</div>
+    <h2>A little something for you</h2>
+    <p>Open it...</p>
+    <button class="main-btn" onclick="nextScreen(4)">
+      Open the gift ♡
     </button>
-
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     3. GIFT
-===================================================== -->
-
-<section class="screen" id="s3">
-
+<!-- 4 CAKE -->
+<section class="screen" id="screen4">
   <div class="container">
-
-    <div class="gift" onclick="go('s4')">
-      🎁
-    </div>
-
-    <h2>
-      A little gift for you
-    </h2>
-
+    <div class="cake">🎂</div>
+    <h2>Make a wish, Danish ♡</h2>
     <p>
-      Tap the gift box to open it.
+      Another year, another chapter.<br>
+      I hope this one is kind to you.
     </p>
 
+    <button class="main-btn" onclick="nextScreen(5)">
+      Blow the candles
+    </button>
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     4. CAKE
-===================================================== -->
-
-<section class="screen" id="s4">
-
+<!-- 5 LETTER -->
+<section class="screen" id="screen5">
   <div class="container">
-
-    <div class="cake" onclick="go('s5')">
-      🎂
-    </div>
-
-    <h1>
-      Happy Birthday, Danish! 🥳
-    </h1>
-
-    <p>
-      Make a wish and tap the cake to continue.
-    </p>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     5. LETTER
-===================================================== -->
-
-<section class="screen" id="s5">
-
-  <div class="container">
-
     <div class="letter">
 
-      <h2>
-        Dear Danish ♡
-      </h2>
+      <h2>Happy Birthday ♡</h2>
 
       <p>
-        happy birthdayyy 🥳🤍 hope you have a really good day today .
-        semoga panjang umur , murah rezeki and everything goes well for you .
-        i hope you get all the happiness you deserve , and semoga tahun ni jadi
-        tahun yang lebih baik for you . enjoy your dayy! 🎂💗
+        happy birthdayyy 🥳🤍 hope you have a really good day today . semoga panjang umur , murah rezeki and everything goes well for you . i hope you get all the happiness you deserve , and semoga tahun ni jadi tahun yang lebih baik for you . enjoy your dayy! 🎂💗
       </p>
 
     </div>
 
-    <button onclick="go('s6')">
+    <button class="main-btn" onclick="nextScreen(6)">
       Continue ♡
     </button>
-
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     6. DIGITAL BOUQUET
-===================================================== -->
-
-<section class="screen" id="s6">
-
+<!-- 6 BOUQUET -->
+<section class="screen" id="screen6">
   <div class="container">
 
-    <h2>
-      Digital Bouquet 💐
-    </h2>
+    <h2>A digital bouquet for you 🌷</h2>
 
-    <p>
-      Each flower has a little message from me to you.
+    <p class="small-text">
+      Tap the flowers one by one.
     </p>
 
     <div class="flowers">
 
-      <div
-        class="flower"
-        onclick="message('You deserve so many good things ♡')"
-      >
-        🌷
-      </div>
+      <button class="flower" onclick="showMessage('You deserve all the good things coming your way 🤍')">
+        <div class="flower-icon">🌷</div>
+        <span>For your happiness</span>
+      </button>
 
-      <div
-        class="flower"
-        onclick="message('I hope you always have reasons to smile.')"
-      >
-        🌸
-      </div>
+      <button class="flower" onclick="showMessage('I hope you always have reasons to smile, even on difficult days.')">
+        <div class="flower-icon">🌸</div>
+        <span>For your smile</span>
+      </button>
 
-      <div
-        class="flower"
-        onclick="message('Thank you for being you.')"
-      >
-        🌹
-      </div>
+      <button class="flower" onclick="showMessage('I hope this year brings you closer to everything you dream about.')">
+        <div class="flower-icon">🌹</div>
+        <span>For your dreams</span>
+      </button>
 
-      <div
-        class="flower"
-        onclick="message('I hope this year treats you kindly.')"
-      >
-        🌻
-      </div>
+      <button class="flower" onclick="showMessage('Please take care of yourself and remember to rest too.')">
+        <div class="flower-icon">🌻</div>
+        <span>For you</span>
+      </button>
 
-      <div
-        class="flower"
-        onclick="message('You are someone I am really grateful for.')"
-      >
-        🌼
-      </div>
+      <button class="flower" onclick="showMessage('May the little things make your days feel a little brighter.')">
+        <div class="flower-icon">🌼</div>
+        <span>For your days</span>
+      </button>
 
-      <div
-        class="flower"
-        onclick="message('Happy birthday again, Danish! ♡')"
-      >
-        💐
-      </div>
+      <button class="flower" onclick="showMessage('Thank you for being someone worth knowing. ♡')">
+        <div class="flower-icon">💐</div>
+        <span>Just because</span>
+      </button>
 
     </div>
 
-    <button onclick="go('s7')">
+    <button class="main-btn" onclick="nextScreen(7)">
       Next ♡
     </button>
 
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     7. OUR STORY
-===================================================== -->
-
-<section class="screen" id="s7">
-
+<!-- 7 STORY -->
+<section class="screen" id="screen7">
   <div class="container">
 
-    <h2>
-      Our Story ♡
-    </h2>
+    <h2>Our Story ♡</h2>
 
-    <p>
-      A little timeline of some memories.
+    <p class="small-text">
+      Some things are simple, but still meaningful.
     </p>
 
     <div class="timeline">
 
-      <div class="event">
-
-        <b>
-          The beginning
-        </b>
-
-        <p>
-          One small moment became a memory I still remember.
-        </p>
-
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div>
+          <h3>The beginning</h3>
+          <p>
+            Somewhere along the way, you became someone I was happy to know.
+          </p>
+        </div>
       </div>
 
-
-      <div class="event">
-
-        <b>
-          The silly moments
-        </b>
-
-        <p>
-          All the random conversations and little things.
-        </p>
-
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div>
+          <h3>The little moments</h3>
+          <p>
+            The random conversations, silly moments and small things somehow became memories.
+          </p>
+        </div>
       </div>
 
-
-      <div class="event">
-
-        <b>
-          The good memories
-        </b>
-
-        <p>
-          Some moments are simple but still special.
-        </p>
-
-      </div>
-
-
-      <div class="event">
-
-        <b>
-          Right now
-        </b>
-
-        <p>
-          I am just really happy I got to know you.
-        </p>
-
+      <div class="story-item">
+        <div class="story-dot"></div>
+        <div>
+          <h3>Right now</h3>
+          <p>
+            I may not know what the future looks like, but I'm glad our paths crossed.
+          </p>
+        </div>
       </div>
 
     </div>
 
-    <button onclick="go('s8')">
+    <button class="main-btn" onclick="nextScreen(8)">
+      Keep going ♡
+    </button>
+
+  </div>
+</section>
+
+
+<!-- 8 PLAYLIST -->
+<section class="screen" id="screen8">
+  <div class="container">
+
+    <h2>Our Playlist 🎧</h2>
+
+    <p class="small-text">
+      Three songs for this little birthday corner.
+    </p>
+
+    <div class="playlist">
+
+      <!-- SONG 1 -->
+      <div class="song">
+        <div class="song-icon">🎵</div>
+
+        <div class="song-info">
+          <b>Soft Spot</b>
+          <p>keshi</p>
+        </div>
+
+        <button onclick="playSong('music.mp3', this)">
+          ▶ Play
+        </button>
+      </div>
+
+
+      <!-- SONG 2 -->
+      <div class="song">
+        <div class="song-icon">🎵</div>
+
+        <div class="song-info">
+          <b>Super Powers</b>
+          <p>Daniel Caesar</p>
+        </div>
+
+        <button onclick="playSong('song1.mp3', this)">
+          ▶ Play
+        </button>
+      </div>
+
+
+      <!-- SONG 3 -->
+      <div class="song">
+        <div class="song-icon">🎵</div>
+
+        <div class="song-info">
+          <b>Monokrom</b>
+          <p>Tulus</p>
+        </div>
+
+        <button onclick="playSong('song2.mp3', this)">
+          ▶ Play
+        </button>
+      </div>
+
+    </div>
+
+    <div class="music-status" id="musicStatus">
+      🎧 Music is playing...
+    </div>
+
+    <button class="main-btn" onclick="nextScreen(9)">
       Next ♡
     </button>
 
   </div>
-
 </section>
 
 
-
-<!-- =====================================================
-     8. PLAYLIST
-===================================================== -->
-
-<section class="screen" id="s8">
-
+<!-- 9 GRATITUDE -->
+<section class="screen" id="screen9">
   <div class="container">
 
-    <h2>
-      Our Playlist 🎧
-    </h2>
+    <div class="jar">🫙</div>
 
-    <p>
-      Pick a song to listen to.
+    <h2>Reasons I'm Grateful To Know You</h2>
+
+    <p class="small-text">
+      Tap the jar for a little note.
     </p>
 
-
-    <!-- SOFT SPOT -->
-
-    <div class="song">
-
-      <div class="song-icon">
-        🎵
-      </div>
-
-      <div class="song-info">
-
-        <b>
-          Soft Spot
-        </b>
-
-        <p>
-          keshi
-        </p>
-
-      </div>
-
-      <button
-        id="musicButton"
-        onclick="toggleMusic()"
-      >
-        ▶ Play
-      </button>
-
+    <div class="note" id="gratitudeNote">
+      Tap below to reveal a reason ♡
     </div>
 
-
-    <div
-      class="music-status"
-      id="musicStatus"
-    >
-      🎧 Soft Spot is playing...
-    </div>
-
-
-    <!-- SUPER POWERS -->
-
-    <div class="song">
-
-      <div class="song-icon">
-        🎶
-      </div>
-
-      <div class="song-info">
-
-        <b>
-          Super Powers
-        </b>
-
-        <p>
-          Daniel Caesar
-        </p>
-
-      </div>
-
-      <button
-        onclick="message('Super Powers — Daniel Caesar 🎧')"
-      >
-        ♪
-      </button>
-
-    </div>
-
-
-    <!-- MONOKROM -->
-
-    <div class="song">
-
-      <div class="song-icon">
-        🎼
-      </div>
-
-      <div class="song-info">
-
-        <b>
-          Monokrom
-        </b>
-
-        <p>
-          Tulus
-        </p>
-
-      </div>
-
-      <button
-        onclick="message('Monokrom — Tulus 🎧')"
-      >
-        ♪
-      </button>
-
-    </div>
-
-
-    <button onclick="go('s9')">
-      One last thing ♡
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     AUDIO
-     
-     IMPORTANT:
-     music.mp3 MUST BE IN THE SAME FOLDER
-     AS index.html
-===================================================== -->
-
-<audio
-  id="music"
-  src="music.mp3"
-  preload="auto"
->
-</audio>
-
-
-
-<!-- =====================================================
-     9. GRATITUDE
-===================================================== -->
-
-<section class="screen" id="s9">
-
-  <div class="container">
-
-    <h2>
-      Reasons I’m Grateful To Know You
-    </h2>
-
-    <p>
-      Tap the jar and take a little note from me.
-    </p>
-
-    <div
-      class="jar"
-      onclick="randomNote()"
-    >
-      🫙
-    </div>
-
-    <button onclick="go('s10')">
-      Continue ♡
-    </button>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     10. FINAL
-===================================================== -->
-
-<section class="screen" id="s10">
-
-  <div class="container">
-
-    <div class="final-heart">
-      💗
-    </div>
-
-    <h1>
-      Happy Birthday, Danish ♡
-    </h1>
-
-    <p>
-      I hope this little surprise made you smile.
-      Thank you for being part of my memories.
-    </p>
-
-    <button onclick="celebrate()">
-      Tap for confetti 🎉
+    <button class="main-btn" onclick="newNote()">
+      Open a note
     </button>
 
     <br>
 
-    <button onclick="location.reload()">
-      Replay ♡
+    <button class="main-btn" onclick="nextScreen(10)">
+      One last thing...
     </button>
 
   </div>
-
 </section>
 
 
+<!-- 10 FINAL -->
+<section class="screen" id="screen10">
+  <div class="container">
 
-<!-- TOAST -->
+    <div class="final-heart">💗</div>
 
-<div
-  class="toast"
-  id="toast"
-></div>
+    <h1>Happy Birthday, Danish!</h1>
 
+    <p>
+      I hope this little surprise made you smile.
+    </p>
+
+    <p class="small-text">
+      Have the best day ever ♡
+    </p>
+
+    <button class="main-btn" onclick="celebrate()">
+      Celebrate 🎉
+    </button>
+
+  </div>
+</section>
+
+
+<!-- MESSAGE POPUP -->
+<div class="message" id="messageBox">
+  <p id="messageText"></p>
+  <button onclick="closeMessage()">Close ♡</button>
+</div>
 
 
 <script>
 
-/* =====================================================
-   SCREEN NAVIGATION
-===================================================== */
+/* SCREEN NAVIGATION */
 
-let current = "s1";
+function nextScreen(number){
 
-function go(id){
+  document.querySelectorAll(".screen").forEach(function(screen){
+    screen.classList.remove("active");
+  });
 
-  document
-    .getElementById(current)
-    .classList
-    .remove("active");
-
-  document
-    .getElementById(id)
-    .classList
-    .add("active");
-
-  current = id;
-
+  document.getElementById("screen" + number).classList.add("active");
 }
 
 
+/* PASSWORD */
 
-/* =====================================================
-   PASSWORD
-===================================================== */
+let enteredPassword = "";
 
-let code = "";
+function pressKey(number){
 
-function press(number){
-
-  if(code.length < 4){
-
-    code += number;
-
-    document
-      .getElementById("code")
-      .innerText =
-      "•".repeat(code.length);
-
+  if(enteredPassword.length >= 4){
+    return;
   }
 
+  enteredPassword += number;
+  updatePasswordDisplay();
 }
 
+function clearPassword(){
 
-function erase(){
-
-  code =
-    code.slice(0,-1);
-
-  document
-    .getElementById("code")
-    .innerText =
-    "•".repeat(code.length);
-
+  enteredPassword = enteredPassword.slice(0,-1);
+  updatePasswordDisplay();
 }
 
+function updatePasswordDisplay(){
+
+  const dots = document.querySelectorAll(".dot");
+
+  dots.forEach(function(dot,index){
+
+    if(index < enteredPassword.length){
+      dot.classList.add("filled");
+    }else{
+      dot.classList.remove("filled");
+    }
+
+  });
+}
 
 function checkPassword(){
 
-  if(code === "0511"){
+  const error = document.getElementById("passwordError");
 
-    code = "";
+  if(enteredPassword === "0511"){
 
-    document
-      .getElementById("code")
-      .innerText = "";
+    error.innerText = "";
 
-    go("s3");
+    setTimeout(function(){
+      nextScreen(3);
+    },300);
+
+  }else{
+
+    error.innerText = "Hmm... try again ♡";
+    enteredPassword = "";
+    updatePasswordDisplay();
 
   }
+}
 
-  else{
 
-    message(
-      "Wrong code 😭 Try again!"
+/* POPUP MESSAGE */
+
+function showMessage(text){
+
+  document.getElementById("messageText").innerText = text;
+  document.getElementById("messageBox").style.display = "block";
+
+}
+
+function closeMessage(){
+
+  document.getElementById("messageBox").style.display = "none";
+
+}
+
+
+/* MUSIC */
+
+let currentAudio = null;
+let currentButton = null;
+
+function playSong(file, button){
+
+  /* If the same song is currently playing, pause it */
+
+  if(currentAudio && !currentAudio.paused && currentButton === button){
+
+    currentAudio.pause();
+    button.innerText = "▶ Play";
+
+    document.getElementById("musicStatus").style.display = "none";
+
+    return;
+  }
+
+
+  /* Stop previous song */
+
+  if(currentAudio){
+
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
+  if(currentButton){
+    currentButton.innerText = "▶ Play";
+  }
+
+
+  /* Create new audio */
+
+  currentAudio = new Audio(file);
+  currentButton = button;
+
+  currentAudio.play().then(function(){
+
+    button.innerText = "⏸ Pause";
+
+    document.getElementById("musicStatus").style.display = "block";
+
+  }).catch(function(){
+
+    showMessage(
+      "The song file couldn't be played. Make sure the MP3 file is uploaded in the same GitHub folder as index.html."
     );
 
-    code = "";
-
-    document
-      .getElementById("code")
-      .innerText = "";
-
-  }
-
-}
+  });
 
 
+  currentAudio.addEventListener("ended",function(){
 
-/* =====================================================
-   POPUP
-===================================================== */
+    button.innerText = "▶ Play";
 
-function message(text){
+    document.getElementById("musicStatus").style.display = "none";
 
-  const toast =
-    document.getElementById("toast");
-
-  toast.innerText =
-    text;
-
-  toast.style.display =
-    "block";
-
-  setTimeout(function(){
-
-    toast.style.display =
-      "none";
-
-  },2500);
+  });
 
 }
 
 
-
-/* =====================================================
-   MUSIC PLAYER
-===================================================== */
-
-const music =
-  document.getElementById("music");
-
-const musicButton =
-  document.getElementById("musicButton");
-
-const musicStatus =
-  document.getElementById("musicStatus");
-
-
-function toggleMusic(){
-
-  if(music.paused){
-
-    music
-      .play()
-      .then(function(){
-
-        musicButton.innerText =
-          "⏸ Pause";
-
-        musicStatus.style.display =
-          "block";
-
-      })
-      .catch(function(){
-
-        message(
-          "Make sure music.mp3 is in the same GitHub folder as index.html 😭"
-        );
-
-      });
-
-  }
-
-  else{
-
-    music.pause();
-
-    musicButton.innerText =
-      "▶ Play";
-
-    musicStatus.style.display =
-      "none";
-
-  }
-
-}
-
-
-music.addEventListener(
-  "ended",
-  function(){
-
-    musicButton.innerText =
-      "▶ Play";
-
-    musicStatus.style.display =
-      "none";
-
-  }
-);
-
-
-
-/* =====================================================
-   GRATITUDE NOTES
-===================================================== */
+/* GRATITUDE NOTES */
 
 const notes = [
 
-  "I am grateful I got to know you. ♡",
+  "I'm grateful that I got to know someone like you. 🤍",
 
-  "You make some ordinary moments feel special.",
+  "You make ordinary moments feel a little more memorable.",
 
-  "I hope you always have something to smile about.",
+  "I'm thankful for all the random conversations we've had.",
 
-  "You deserve happiness and good things.",
+  "You deserve people who genuinely appreciate you.",
 
-  "Thank you for all the little memories.",
+  "I'm glad our paths crossed. ♡",
 
-  "I hope this new year of your life is beautiful.",
+  "I hope you always remember that you matter.",
 
-  "I am really happy you are part of my memories.",
-
-  "You are someone I will always appreciate. ♡"
+  "Thank you for being part of some of my favourite little moments."
 
 ];
 
+function newNote(){
 
-function randomNote(){
+  const randomIndex =
+    Math.floor(Math.random() * notes.length);
 
-  const random =
-    Math.floor(
-      Math.random() *
-      notes.length
-    );
-
-  message(
-    notes[random]
-  );
+  document.getElementById("gratitudeNote").innerText =
+    notes[randomIndex];
 
 }
 
 
-
-/* =====================================================
-   CONFETTI
-===================================================== */
+/* FINAL CONFETTI */
 
 function celebrate(){
 
-  for(
-    let i = 0;
-    i < 100;
-    i++
-  ){
+  for(let i = 0; i < 45; i++){
 
-    const piece =
-      document.createElement("div");
+    const piece = document.createElement("div");
 
-    piece.className =
-      "confetti";
+    piece.className = "confetti";
+
+    const symbols = ["🎉","✨","💗","♡","🎀","⭐"];
+
+    piece.innerText =
+      symbols[Math.floor(Math.random() * symbols.length)];
 
     piece.style.left =
-      Math.random() * 100 +
-      "vw";
+      Math.random() * 100 + "vw";
 
-    piece.style.background =
-      [
-        "#ff6f9d",
-        "#ffd1df",
-        "#ffffff",
-        "#ffb3c8"
-      ][
-        Math.floor(
-          Math.random() * 4
-        )
-      ];
+    piece.style.animationDuration =
+      (2.5 + Math.random() * 2.5) + "s";
 
     piece.style.animationDelay =
-      Math.random() * 1.5 +
-      "s";
+      Math.random() * 1.5 + "s";
 
-    piece.style.width =
-      (Math.random() * 7 + 5) +
-      "px";
-
-    piece.style.height =
-      (Math.random() * 7 + 5) +
-      "px";
-
-    document.body.appendChild(
-      piece
-    );
+    document.body.appendChild(piece);
 
     setTimeout(function(){
-
       piece.remove();
-
-    },4000);
+    },6000);
 
   }
 
